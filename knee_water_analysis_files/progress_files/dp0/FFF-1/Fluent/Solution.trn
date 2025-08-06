@@ -1,0 +1,106 @@
+
+Build Time: Dec  2 2019 14:15:02 EST 
+Executable Path: F:/PROGRA~1/ANSYSI~2/v201/fluent/ntbin/win64/fluent.exe
+
+-------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID   Vendor               
+-------------------------------------------------------------------------------
+n0*   DESKTOP-QCIN5NE  1/4  Windows-x64  3724  Intel(R) Core(TM) i5 
+host  DESKTOP-QCIN5NE       Windows-x64  1792  Intel(R) Core(TM) i5 
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+Reading "\"| gunzip -c \\"F:\temp\deliver_knee_water\knee_water_analysis_files\dp0\FFF-1\Fluent\FFF-1-Setup-Output.cas.gz\\"\""...
+Buffering for file scan...
+
+
+
+     194 hexahedral cells, zone  3, binary.
+     334 quadrilateral wall faces, zone  1, binary.
+     415 quadrilateral interior faces, zone  2, binary.
+     399 nodes, binary.
+399 node flags, binary.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	interior-part_knee_water_arc-freeparts_boss-extrude2
+	wall-part_knee_water_arc-freeparts_boss-extrude2
+	part_knee_water_arc-freeparts_boss-extrude2Setting part_knee_water_arc-freeparts_boss-extrude2 (mixture) ... Done.
+ Setting zone id of part_knee_water_arc-freeparts_boss-extrude2 to 3.
+ Setting zone id of wall-part_knee_water_arc-freeparts_boss-extrude2 to 1.
+ Setting zone id of interior-part_knee_water_arc-freeparts_boss-extrude2 to 2.
+Done.
+Setting part_knee_water_arc-freeparts_boss-extrude2 (mixture) ... Done.
+Setting wall-part_knee_water_arc-freeparts_boss-extrude2 (mixture) ... Done.
+Setting interior-part_knee_water_arc-freeparts_boss-extrude2 (mixture) ... Done.
+
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+Reading "\"| gunzip -c \\"F:\temp\deliver_knee_water\knee_water_analysis_files\dp0\FFF-1\Fluent\FFF-1-1-00150.dat.gz\\"\""...
+
+
+Parallel variables...
+Done.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity           k       omega     time/iter
+   150  3.8787e-07  8.1786e-04  7.6023e-04  1.7554e-04  5.9925e-05  0.0000e+00  0:00:00  200
+   151  2.9617e-07  5.8439e-04  5.5324e-04  1.2938e-04  4.4065e-05  0.0000e+00  0:00:00  199
+!  152 solution is converged
+   152  2.2649e-07  4.3128e-04  4.1218e-04  9.4791e-05  3.2240e-05  0.0000e+00  0:00:00  198
+Writing "| gzip -2cf > SolutionMonitor.gz"...
+Writing temporary file C:\\Users\\mofid\\AppData\\Local\\Temp\\flntgz-17922 ...
+Done.
+
+Writing data to F:\\temp\\deliver_knee_water\\knee_water_analysis_files\\dp0\\FFF-1\\Fluent\\FFF-1.ip ...
+	x-coord
+	y-coord
+	z-coord
+	pressure
+	x-velocity
+	y-velocity
+	z-velocity
+	k
+	omega
+Done.
+Writing "| gzip -2cf > FFF-1-2.cas.gz"...
+Writing temporary file C:\\Users\\mofid\\AppData\\Local\\Temp\\flntgz-17923 ...
+     194 hexahedral cells, zone  3, binary.
+     334 quadrilateral wall faces, zone  1, binary.
+     415 quadrilateral interior faces, zone  2, binary.
+     399 nodes, binary.
+     399 node flags, binary.
+Done.
+
+Writing "| gzip -2cf > FFF-1-2-00152.dat.gz"...
+Writing temporary file C:\\Users\\mofid\\AppData\\Local\\Temp\\flntgz-17924 ...
+Done.
+
+
+Performance Timer for 2 iterations on 1 compute node
+  Average wall-clock time per iteration:              0.006 sec
+  Global reductions per iteration:                       52 ops
+  Global reductions time per iteration:               0.000 sec (0.0%)
+  Message count per iteration:                            5 messages
+  Data transfer per iteration:                        0.000 MB
+  LE solves per iteration:                                6 solves
+  LE wall-clock time per iteration:                   0.000 sec (8.3%)
+  LE global solves per iteration:                         0 solves
+  LE global wall-clock time per iteration:            0.000 sec (0.0%)
+  LE global matrix maximum size:                         0
+  AMG cycles per iteration:                           7.000 cycles
+  Relaxation sweeps per iteration:                       44 sweeps
+  Relaxation exchanges per iteration:                     0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+
+  Total wall-clock time:                              0.012 sec
+

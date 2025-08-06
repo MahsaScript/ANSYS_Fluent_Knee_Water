@@ -1,0 +1,192 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: 3d, pbns, sstkw (3d, pressure-based, SST k-omega)
+Release: 20.1.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings                       
+   ---------------------------------------------------------
+   Space                        3D                             
+   Time                         Steady                         
+   Viscous                      SST k-omega turbulence model   
+   Heat Transfer                Disabled                       
+   Solidification and Melting   Disabled                       
+   Species                      Disabled                       
+   Coupled Dispersed Phase      Disabled                       
+   NOx Pollutants               Disabled                       
+   SOx Pollutants               Disabled                       
+   Soot                         Disabled                       
+   Mercury Pollutants           Disabled                       
+   Structure                    Disabled                       
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: water-liquid (fluid)
+
+      Property                        Units     Method     Value(s)   
+      -------------------------------------------------------------
+      Density                         kg/m3     constant   998.2      
+      Cp (Specific Heat)              j/kg-k    constant   4182       
+      Thermal Conductivity            w/m-k     constant   0.6        
+      Viscosity                       kg/m-s    constant   0.001003   
+      Molecular Weight                kg/kmol   constant   18.0152    
+      Thermal Expansion Coefficient   1/k       constant   0          
+      Speed of Sound                  m/s       none       #f         
+
+   Material: air (fluid)
+
+      Property                        Units     Method     Value(s)     
+      ---------------------------------------------------------------
+      Density                         kg/m3     constant   1.225        
+      Cp (Specific Heat)              j/kg-k    constant   1006.43      
+      Thermal Conductivity            w/m-k     constant   0.0242       
+      Viscosity                       kg/m-s    constant   1.7894e-05   
+      Molecular Weight                kg/kmol   constant   28.966       
+      Thermal Expansion Coefficient   1/k       constant   0            
+      Speed of Sound                  m/s       none       #f           
+
+   Material: aluminum (solid)
+
+      Property               Units    Method     Value(s)   
+      ---------------------------------------------------
+      Density                kg/m3    constant   2719       
+      Cp (Specific Heat)     j/kg-k   constant   871        
+      Thermal Conductivity   w/m-k    constant   202.4      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name                                          id   type    
+      --------------------------------------------------------
+      part_knee_water_arc-freeparts_boss-extrude2   3    fluid   
+
+   Setup Conditions
+
+      part_knee_water_arc-freeparts_boss-extrude2
+
+         Condition                                       Value   
+         -----------------------------------------------------
+         Material Name                                   air     
+         Frame Motion?                                   no      
+         Reference Frame X-Origin of Rotation-Axis (m)   0.8     
+         Reference Frame Y-Origin of Rotation-Axis (m)   0.8     
+         Reference Frame Z-Origin of Rotation-Axis (m)   0.8     
+         Reference Frame X-Component of Rotation-Axis    2       
+         Reference Frame Y-Component of Rotation-Axis    2       
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                                               id   type   
+      ------------------------------------------------------------
+      wall-part_knee_water_arc-freeparts_boss-extrude2   1    wall   
+
+   Setup Conditions
+
+      wall-part_knee_water_arc-freeparts_boss-extrude2
+
+         Condition                                            Value   
+         ----------------------------------------------------------
+         Wall Motion                                          1       
+         Shear Boundary Condition                             0       
+         Wall Surface Roughness                               0       
+         Define wall motion relative to adjacent cell zone?   yes     
+         Apply a rotational velocity to this wall?            yes     
+         Rotation Speed (rad/s)                               0.8     
+         X-Position of Rotation-Axis Origin (m)               0.8     
+         Y-Position of Rotation-Axis Origin (m)               0.8     
+         Z-Position of Rotation-Axis Origin (m)               0.8     
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Relaxation
+
+      Variable                    Relaxation Factor   
+      ---------------------------------------------
+      Pressure                    0.3                 
+      Density                     1                   
+      Body Forces                 1                   
+      Momentum                    0.7                 
+      Turbulent Kinetic Energy    0.8                 
+      Specific Dissipation Rate   0.8                 
+      Turbulent Viscosity         1                   
+
+   Linear Solver
+
+      Variable                    Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      ----------------------------------------------------------------------------------------------
+      Pressure                    V-Cycle       0.1                                                    
+      X-Momentum                  Flexible      0.1                     0.7                            
+      Y-Momentum                  Flexible      0.1                     0.7                            
+      Z-Momentum                  Flexible      0.1                     0.7                            
+      Turbulent Kinetic Energy    Flexible      0.1                     0.7                            
+      Specific Dissipation Rate   Flexible      0.1                     0.7                            
+
+   Pressure-Velocity Coupling
+
+      Parameter   Value    
+      ------------------
+      Type        SIMPLE   
+
+   Discretization Scheme
+
+      Variable                    Scheme                
+      -----------------------------------------------
+      Pressure                    Second Order          
+      Momentum                    Second Order Upwind   
+      Turbulent Kinetic Energy    First Order Upwind    
+      Specific Dissipation Rate   First Order Upwind    
+
+   Solution Limits
+
+      Quantity                         Limit    
+      ---------------------------------------
+      Minimum Absolute Pressure        1        
+      Maximum Absolute Pressure        5e+10    
+      Minimum Temperature              1        
+      Maximum Temperature              5000     
+      Minimum Turb. Kinetic Energy     1e-14    
+      Minimum Spec. Dissipation Rate   1e-20    
+      Maximum Turb. Viscosity Ratio    100000   
+
+</SolverSettings>
+
+</FluentXMLReport>
